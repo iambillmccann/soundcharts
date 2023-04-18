@@ -1,4 +1,10 @@
 import requests
+import time
+import utilities
+
+ARTIST_FILE = "artists.csv"
+CALL_LIMIT = 100
+DOMAIN = "https://sandbox.api.soundcharts.com"
 
 def get_top_artists(api_key, url):
     headers = {
@@ -16,15 +22,30 @@ def get_top_artists(api_key, url):
         return None
 
 def main():
+    file_disposition = "w" # The first time we write to the file, we want to overwrite it
     api_key = "soundcharts"
-    url = "https://sandbox.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?sortBy=total&period=week&minValue=0"
+    url = DOMAIN + "/api/v2/top-artist/spotify/monthly_listeners?sortBy=total&period=week&minValue=0"
 
-    artists_data = get_top_artists(api_key, url)
+    for count in range(0, CALL_LIMIT):
+    
+        artists_data = get_top_artists(api_key, url)
+        if artists_data is None: break
 
-    if artists_data is not None:
-        print("List of Top Artists on SoundCharts:")
-        for item in artists_data['items']:
-            print(f"{item['artist']['name']} (Monthly Listeners: {item['total']})")
+        artists = list(map(lambda x: [x['artist']['uuid'], x['artist']['slug'], x['artist']['name']], artists_data['items']))
+        utilities.save_data(artists, ARTIST_FILE, file_disposition)
+
+        if artists_data['page']['next'] is None: break
+        url = DOMAIN + artists_data['page']['next']
+        file_disposition = "a" # After the first time, we want to append to the file
 
 if __name__ == "__main__":
+
+    start_time = time.time()
     main()
+    stop_time = time.time()
+    total_time = stop_time - start_time
+
+    print('\n-----------------------------------------------------------------------')
+    print('Execution time was ' + utilities.format_milliseconds(total_time))
+    print('-----------------------------------------------------------------------')
+    print()
