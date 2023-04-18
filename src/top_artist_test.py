@@ -4,7 +4,8 @@ import utilities
 import os
 
 ARTIST_FILE = "artists.csv"
-CALL_LIMIT = 100
+CHECKPOINT_FILE = "checkpoint.txt"
+CALL_LIMIT = 10
 DOMAIN = " https://customer.api.soundcharts.com"
 
 def get_top_artists(url):
@@ -36,6 +37,7 @@ def main():
 
         if artists_data['page']['next'] is None: break
         url = DOMAIN + artists_data['page']['next']
+        utilities.take_checkpoint(url, CHECKPOINT_FILE, file_disposition)
         file_disposition = "a" # After the first time, we want to append to the file
 
 if __name__ == "__main__":

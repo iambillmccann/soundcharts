@@ -1,0 +1,10 @@
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=WzMxMzk1Mzg3LDIyODE4ODld&limit=100
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=WzIyNzExMzA1LDIwNDA1Mjk5XQ%3D%3D&limit=100
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=WzE4MjgzODIwLDIyMDAyMzFd&limit=100
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=WzE1MDIxNjQ3LDE5ODUzODNd&limit=100
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=WzEyOTI0ODU2LDUzOTQ3MThd&limit=100
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=WzExMzQ4MDk3LDIyNzU5OTFd&limit=100
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=WzEwMTUxNjE2LDIwMTYwNzdd&limit=100
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=WzkyMjk1OTQsMTkyMjcyMF0%3D&limit=100
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=Wzg1MTg1OTMsMTMyNDIxM10%3D&limit=100
+ https://customer.api.soundcharts.com/api/v2/top-artist/spotify/monthly_listeners?period=week&sortBy=total&sortOrder=desc&token=Wzc4NDQxNzUsMTUwNTYyNF0%3D&limit=100

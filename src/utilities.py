@@ -61,3 +61,17 @@ def save_data(data, file_name, file_disposition="w"):
         if file_disposition == "w": write.writerow(fields)
         for item in data:
             write.writerow(item)
+
+def take_checkpoint(url, file_name, file_disposition="w"):
+    """ Save the url to a checkpoint file
+
+    Args:
+        url          The url to save
+        file_name    The name of the file to contain the url
+    Returns:
+        Nothing
+    """
+
+    with open(DATA_FOLDER + file_name, file_disposition) as file:
+        write = csv.writer(file)
+        write.writerow([url])
