@@ -1,15 +1,16 @@
 import requests
 import time
 import utilities
+import os
 
 ARTIST_FILE = "artists.csv"
 CALL_LIMIT = 100
-DOMAIN = "https://sandbox.api.soundcharts.com"
+DOMAIN = " https://customer.api.soundcharts.com"
 
-def get_top_artists(api_key, url):
+def get_top_artists(url):
     headers = {
-        "x-app-id": "soundcharts",
-        "x-api-key": api_key,
+        "x-app-id": os.environ.get('X_APP_ID'),
+        "x-api-key": os.environ.get('X_API_KEY'),
         "Content-Type": "application/json"
     }
 
@@ -23,12 +24,11 @@ def get_top_artists(api_key, url):
 
 def main():
     file_disposition = "w" # The first time we write to the file, we want to overwrite it
-    api_key = "soundcharts"
     url = DOMAIN + "/api/v2/top-artist/spotify/monthly_listeners?sortBy=total&period=week&minValue=0"
 
     for count in range(0, CALL_LIMIT):
     
-        artists_data = get_top_artists(api_key, url)
+        artists_data = get_top_artists(url)
         if artists_data is None: break
 
         artists = list(map(lambda x: [x['artist']['uuid'], x['artist']['slug'], x['artist']['name']], artists_data['items']))
