@@ -5,7 +5,7 @@ import os
 
 ARTIST_FILE = "artists.csv"
 CHECKPOINT_FILE = "checkpoint.txt"
-CALL_LIMIT = 10
+CALL_LIMIT = 48126
 DOMAIN = " https://customer.api.soundcharts.com"
 
 def get_top_artists(url):
