@@ -1,5 +1,6 @@
 import math
 import csv
+import boto3
 
 from os import system, name, path
 
@@ -75,3 +76,16 @@ def take_checkpoint(url, file_name, file_disposition="w"):
     with open(DATA_FOLDER + file_name, file_disposition) as file:
         write = csv.writer(file)
         write.writerow([url])
+
+def get_parameter_from_ssm(parameter_name):
+    """Get a parameter from the AWS SSM Parameter Store
+
+    Args:
+        parameter_name  The name of the parameter to get
+        Returns:
+            The value of the parameter
+    """
+    ssm = boto3.client("ssm")
+    response = ssm.get_parameter(Name=parameter_name, WithDecryption=True)
+    return response["Parameter"]["Value"]
+
