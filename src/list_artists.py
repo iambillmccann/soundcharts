@@ -3,7 +3,7 @@ import utilities
 import json
 from database import Session, Artist, func
 
-LIMIT = 500
+LIMIT = 1000
 
 def main(limit):
 
